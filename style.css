@@ -91,6 +91,10 @@ body {
     }
 }
 
+h1 {
+    text-align: center;
+    
+}
 
 /* 設定 header */
 header {
