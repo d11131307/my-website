@@ -84,3 +84,68 @@ body {
         height: 180px;
     }
 }
+
+
+/* 設定 header */
+header {
+    width: 100%;
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    position: relative;
+}
+
+/* 漢堡選單圖示 */
+.menu-toggle {
+    font-size: 30px;
+    cursor: pointer;
+    display: none; /* 預設隱藏（桌機版不顯示） */
+}
+
+/* 選單樣式 */
+.menu ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+/* 手機版：隱藏選單 */
+@media (max-width: 768px) {
+    .menu ul {
+        display: none; /* 預設隱藏 */
+        flex-direction: column;
+        background: #333;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .menu ul li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* 只在手機版顯示 */
+    }
+
+    /* 當選單展開時 */
+    .menu.open ul {
+        display: flex;
+    }
+}
