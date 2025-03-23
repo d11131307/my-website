@@ -36,20 +36,21 @@ body {
     width: 100%;
 }
 
-/* 🔥 讓區塊自適應調整，但不會太小 */
+/* ✅ 讓區塊隨螢幕大小自適應，但不會變太小 */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 最小200px，最大自適應 */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 讓區塊至少 250px */
     gap: 20px;
-    justify-content: center;
-    max-width: 1200px;
+    max-width: 90vw; /* 限制最大寬度，避免水平滾動條 */
     margin: auto;
+    padding: 20px; /* 增加內邊距，避免緊貼螢幕邊緣 */
+    box-sizing: border-box; /* 確保 padding 不會影響整體寬度 */
 }
 
-/* 讓區塊可以根據裝置大小縮放 */
+/* ✅ 讓每個區塊填滿網格 */
 .block {
-    width: 100%; /* 讓區塊填滿網格 */
-    max-width: 300px; /* 最大不超過 300px */
+    width: 100%; /* 讓區塊填滿父容器 */
+    max-width: 300px; /* 最大不超過 300px，避免過大 */
     aspect-ratio: 1 / 1; /* 保持正方形 */
     background-color: #f0f0f0;
     display: flex;
@@ -58,6 +59,7 @@ body {
     justify-content: center;
     transition: transform 0.3s ease-in-out;
 }
+
 
 
 /* 圖片樣式 */
