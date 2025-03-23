@@ -125,28 +125,28 @@ header {
 
 /* 初始隱藏選單，讓它展開時有動畫 */
 .menu {
-    max-height: 0;
-    overflow: hidden; /* 確保選單收起來時內容不會顯示 */
-    display: flex;
-    flex-direction: column;
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.85);
     text-align: center;
+    display: flex;
+    flex-direction: column;
     padding: 0;
-    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    
+    /* 預設收起時隱藏 */
     opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
 /* 選單展開時 */
 .menu.open {
-    max-height: 300px; /* 你可以根據內容調整這個值 */
-    padding: 10px 0;
     opacity: 1;
+    transform: translateY(0);
 }
+
 
 
 .menu.open ul {
