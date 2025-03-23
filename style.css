@@ -1,8 +1,10 @@
+/* 設定主要區塊樣式 */
 main {
     padding: 20px;
     text-align: center;
 }
 
+/* 讓 footer 貼在頁面底部 */
 footer {
     background: #333;
     color: white;
@@ -12,6 +14,7 @@ footer {
     margin-top: auto;
 }
 
+/* 設定整個頁面，確保 footer 在底部 */
 body {
     font-family: "Oswald", sans-serif;
     margin: 0;
@@ -24,24 +27,26 @@ body {
     min-height: 100vh;
 }
 
+/* 讓內容填滿剩餘空間 */
 .wrapper {
-    flex: 1; /* 讓這個區塊填充剩餘的空間 */
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
+/* 🔥 主要的 `grid` 容器 */
 .grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 預設電腦版 4 列 */
     gap: 20px;
     max-width: 1200px;
     justify-content: center;
     margin: auto;
 }
 
+/* 固定大小的區塊 */
 .block {
     width: 250px; /* 固定大小 */
     height: 250px; /* 固定大小 */
@@ -53,24 +58,28 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
+/* 滑鼠移上去時放大 */
 .block:hover {
     transform: scale(1.1);
 }
 
+/* 圖片樣式 */
 .block img {
     width: 80%;
     height: auto;
     object-fit: cover;
 }
 
+/* 🔹 平板版（螢幕寬度 ≤ 768px） */
 @media (max-width: 768px) {
-    .block {
-        grid-template-columns: repeat(2, 1fr); /* 平板上 2 列 */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 變成 2 列 */
     }
 }
 
+/* 🔹 手機版（螢幕寬度 ≤ 480px） */
 @media (max-width: 480px) {
-    .block {
-        grid-template-columns: repeat(1, 1fr); /* 手機上 1 列 */
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr); /* 變成 1 列 */
     }
 }
