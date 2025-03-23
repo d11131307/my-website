@@ -123,23 +123,31 @@ header {
     display: none; /* 預設隱藏（桌機版不顯示） */
 }
 
+/* 初始隱藏選單，讓它展開時有動畫 */
 .menu {
-    background: rgba(0, 0, 0, 0.85); /* 讓背景更一致 */
-    padding: 15px 0; /* 增加上下間距 */
-    display: none; /* 預設隱藏 */
+    max-height: 0;
+    overflow: hidden; /* 確保選單收起來時內容不會顯示 */
+    display: flex;
     flex-direction: column;
     position: absolute;
     top: 50px;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8); /* 加入半透明黑色背景 */
+    background: rgba(0, 0, 0, 0.85);
     text-align: center;
-    z-index: 1000; /* 確保選單不會被其他元素蓋住 */
+    padding: 0;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
 }
 
+/* 選單展開時 */
 .menu.open {
-    display: flex;
+    max-height: 300px; /* 你可以根據內容調整這個值 */
+    padding: 10px 0;
+    opacity: 1;
 }
+
 
 .menu.open ul {
     display: flex;

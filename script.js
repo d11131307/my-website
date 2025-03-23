@@ -1,23 +1,23 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const blocks = document.querySelectorAll(".block");
+document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector(".menu");
+    const blocks = document.querySelectorAll(".block");
 
-    // 滑鼠移入區塊時放大
-    blocks.forEach(block => {
-        block.addEventListener("mouseover", function() {
-            block.style.transform = "scale(1.1)";
-        });
-
-        block.addEventListener("mouseout", function() {
-            block.style.transform = "scale(1)";
-        });
-    });
-
-    // ✅ 修正選單的點擊事件
+    // ✅ 選單開關
     if (menuToggle) {
-        menuToggle.addEventListener("click", function() {
-            menu.classList.toggle("open"); // 確保與 CSS 一致
+        menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("open"); // 切換選單開關
         });
     }
+
+    // ✅ 區塊 hover 放大效果
+    blocks.forEach(block => {
+        block.addEventListener("mouseover", function () {
+            this.style.transform = "scale(1.1)";
+        });
+
+        block.addEventListener("mouseout", function () {
+            this.style.transform = "scale(1)";
+        });
+    });
 });
