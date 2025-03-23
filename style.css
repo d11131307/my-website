@@ -112,6 +112,7 @@ header {
 }
 
 .menu {
+    background: transparent !important;
     display: none; /* 預設隱藏 */
     flex-direction: column;
     position: absolute;
