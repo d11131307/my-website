@@ -36,21 +36,21 @@ body {
     width: 100%;
 }
 
-/* 🔥 主要的 `grid` 容器 */
+/* 🔥 讓區塊可以自適應調整 */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 每個區塊最小 200px，自適應欄數 */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 自適應寬度 */
     gap: 20px;
+    justify-content: center;
     max-width: 1200px;
     margin: auto;
 }
 
-/* 固定大小的區塊 */
+/* 讓區塊可以根據裝置大小縮放 */
 .block {
-    width: 100%; /* 讓區塊隨網格大小變化 */
-    height: auto;
-    aspect-ratio: 1 / 1; /* 確保區塊為正方形 */
-    max-width: 250px; /* 避免過大 */
+    width: 100%; /* 讓區塊填滿網格 */
+    max-width: 250px; /* 最大不超過 250px */
+    aspect-ratio: 1 / 1; /* 保持正方形 */
     background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
@@ -59,17 +59,19 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
-/* 滑鼠移上去時放大 */
-.block:hover {
-    transform: scale(1.1);
-}
-
 /* 圖片樣式 */
 .block img {
     width: 80%;
     height: auto;
     object-fit: cover;
 }
+
+
+/* 滑鼠移上去時放大 */
+.block:hover {
+    transform: scale(1.1);
+}
+
 
 /* 讓區塊在不同裝置上自動換行 */
 @media (max-width: 1024px) {
