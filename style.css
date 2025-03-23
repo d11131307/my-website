@@ -38,11 +38,11 @@ body {
 
 /* 🔥 主要的 `grid` 容器 */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 預設電腦版 4 列 */
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    max-width: 1200px;
     justify-content: center;
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -70,16 +70,17 @@ body {
     object-fit: cover;
 }
 
-/* 🔹 平板版（螢幕寬度 ≤ 768px） */
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* 變成 2 列 */
+/* 讓區塊在不同裝置上自動換行 */
+@media (max-width: 1024px) {
+    .block {
+        width: 200px; /* 平板縮小一點 */
+        height: 200px;
     }
 }
 
-/* 🔹 手機版（螢幕寬度 ≤ 480px） */
-@media (max-width: 480px) {
-    .grid-container {
-        grid-template-columns: repeat(1, 1fr); /* 變成 1 列 */
+@media (max-width: 768px) {
+    .block {
+        width: 180px; /* 更小的裝置再縮小 */
+        height: 180px;
     }
 }
