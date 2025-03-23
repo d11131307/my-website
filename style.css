@@ -105,11 +105,38 @@ header {
     display: none; /* 預設隱藏（桌機版不顯示） */
 }
 
+.menu {
+    display: none; /* 預設隱藏 */
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* 加入半透明黑色背景 */
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000; /* 確保選單不會被其他元素蓋住 */
+}
+
+.menu.open {
+    display: flex;
+}
+
 /* 選單樣式 */
 .menu ul {
     list-style: none;
     display: flex;
     padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 10px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
 }
 
 .menu ul li {
