@@ -128,9 +128,12 @@ header {
     display: flex;
 }
 
-.menu.active {
-    display: block;
+.menu.open ul {
+    display: flex;
+    flex-direction: column;
 }
+
+
 
 
 /* 選單樣式 */
@@ -185,5 +188,19 @@ header {
     /* 當選單展開時 */
     .menu.open ul {
         display: flex;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu {
+        display: flex !important; /* 強制顯示選單 */
+        flex-direction: row;
+        position: static; /* 取消 absolute 讓它回到 header 內 */
+        background: transparent; /* 讓背景保持透明 */
+        width: auto;
+    }
+
+    .menu ul {
+        display: flex !important; /* 確保桌機版正常顯示 */
     }
 }
