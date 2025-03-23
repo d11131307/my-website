@@ -142,9 +142,10 @@ header {
 
 /* 選單展開時 */
 .menu.open {
+    display: flex !important; /* 強制顯示選單 */
+    opacity: 1 !important;
     max-height: 300px; 
     padding: 10px 0;
-    opacity: 1;
     transform: translateY(0);
     margin-bottom: 50px; /* 讓內容往下推，避免被蓋住 */
 }
