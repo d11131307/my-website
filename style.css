@@ -38,18 +38,19 @@ body {
 
 /* 🔥 主要的 `grid` 容器 */
 .grid-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 每個區塊最小 200px，自適應欄數 */
     gap: 20px;
-    justify-content: center;
     max-width: 1200px;
     margin: auto;
 }
 
 /* 固定大小的區塊 */
 .block {
-    width: 250px; /* 固定大小 */
-    height: 250px; /* 固定大小 */
+    width: 100%; /* 讓區塊隨網格大小變化 */
+    height: auto;
+    aspect-ratio: 1 / 1; /* 確保區塊為正方形 */
+    max-width: 250px; /* 避免過大 */
     background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
