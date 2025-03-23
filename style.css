@@ -120,7 +120,6 @@ header {
 .menu-toggle {
     font-size: 30px;
     cursor: pointer;
-    display: none; /* 預設隱藏（桌機版不顯示） */
 }
 
 /* 初始隱藏選單，讓它展開時有動畫 */
