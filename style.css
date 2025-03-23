@@ -64,13 +64,13 @@ body {
 }
 
 @media (max-width: 768px) {
-    .container {
+    .block {
         grid-template-columns: repeat(2, 1fr); /* 平板上 2 列 */
     }
 }
 
 @media (max-width: 480px) {
-    .container {
+    .block {
         grid-template-columns: repeat(1, 1fr); /* 手機上 1 列 */
     }
 }
