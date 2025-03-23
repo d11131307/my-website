@@ -93,8 +93,16 @@ body {
 
 h1 {
     text-align: center;
-    
+    font-size: 32px;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px; /* 設定固定高度 */
+    margin: 0 auto;
 }
+
 
 /* 設定 header */
 header {
@@ -116,7 +124,8 @@ header {
 }
 
 .menu {
-    background: transparent !important;
+    background: rgba(0, 0, 0, 0.85); /* 讓背景更一致 */
+    padding: 15px 0; /* 增加上下間距 */
     display: none; /* 預設隱藏 */
     flex-direction: column;
     position: absolute;
@@ -125,7 +134,6 @@ header {
     width: 100%;
     background: rgba(0, 0, 0, 0.8); /* 加入半透明黑色背景 */
     text-align: center;
-    padding: 10px 0;
     z-index: 1000; /* 確保選單不會被其他元素蓋住 */
 }
 
@@ -198,14 +206,19 @@ header {
 
 @media (min-width: 769px) {
     .menu {
-        display: flex !important; /* 強制顯示選單 */
+        display: flex !important;
         flex-direction: row;
-        position: static; /* 取消 absolute 讓它回到 header 內 */
-        background: transparent; /* 讓背景保持透明 */
+        position: relative; /* 確保選單保持在 header 內 */
+        background: transparent;
         width: auto;
     }
 
     .menu ul {
-        display: flex !important; /* 確保桌機版正常顯示 */
+        display: flex !important;
+    }
+
+    .menu.open {
+        display: flex;
+        position: static; /* 確保選單展開後不會絕對定位 */
     }
 }
