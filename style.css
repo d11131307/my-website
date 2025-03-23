@@ -122,10 +122,10 @@ header {
     cursor: pointer;
 }
 
-/* 初始隱藏選單，讓它展開時有動畫 */
+/* 初始隱藏選單 */
 .menu {
     position: absolute;
-    top: 0;
+    top: 100%;
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.85);
@@ -134,21 +134,50 @@ header {
     flex-direction: column;
     padding: 0;
     
-    /* 預設收起時隱藏 */
     opacity: 0;
-    transform: translateY(-100%);
-    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    transform: translateY(-10px); /* 讓它稍微上移，並透過動畫滑下 */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    pointer-events: none; /* 防止隱藏時可點擊 */
 }
 
-/* 選單展開時 */
+/* 選單展開 */
 .menu.open {
-    display: flex !important; /* 強制顯示選單 */
-    opacity: 1 !important;
-    max-height: 300px; 
-    padding: 10px 0;
+    opacity: 1;
     transform: translateY(0);
-    margin-bottom: 50px; /* 讓內容往下推，避免被蓋住 */
+    pointer-events: auto;
+    display: flex; /* 確保能顯示 */
 }
+
+/* 手機版選單 */
+@media (max-width: 768px) {
+    .menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background: #333;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        pointer-events: none;
+    }
+
+    /* 選單展開 */
+    .menu.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        display: flex !important; /* 確保展開時顯示 */
+    }
+}
+
 
 
 
@@ -188,33 +217,6 @@ header {
     font-size: 18px;
 }
 
-/* 手機版：隱藏選單 */
-@media (max-width: 768px) {
-    .menu ul {
-        display: none; /* 預設隱藏 */
-        flex-direction: column;
-        background: #333;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .menu ul li {
-        margin: 10px 0;
-    }
-
-    .menu-toggle {
-        display: block; /* 只在手機版顯示 */
-    }
-
-    /* 當選單展開時 */
-    .menu.open ul {
-        display: flex;
-    }
-}
 
 @media (min-width: 769px) {
     .menu {
