@@ -15,3 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function toggleMenu() {
     document.querySelector(".menu").classList.toggle("open");
 }
+
+document.querySelector(".hamburger").addEventListener("click", function() {
+    document.querySelector(".menu").classList.toggle("active");
+});
